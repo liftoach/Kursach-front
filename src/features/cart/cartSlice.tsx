@@ -60,7 +60,7 @@ export const cartSlice = createSlice({
     },
     calculateTotalPrice: (state) => {
       state.subtotal = state.productsInCart.reduce(
-        (acc, product) => acc + product.price * product.quantity,
+        (acc, product) => acc + product.pricePerDay * product.quantity,
         0
       );
     },

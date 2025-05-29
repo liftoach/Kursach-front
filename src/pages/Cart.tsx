@@ -11,7 +11,7 @@ import {
 import toast from "react-hot-toast";
 
 const Cart = () => {
-  const { productsInCart, subtotal } = useAppSelector((state) => state.cart);
+  const { productsInCart,  } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
   const subtotal1 = productsInCart.reduce((total, product) => {

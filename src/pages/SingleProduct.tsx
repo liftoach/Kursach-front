@@ -17,7 +17,8 @@ const SingleProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [singleProduct, setSingleProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState<number>(1);  // Количество для аренды
-  const [rentalPeriod, setRentalPeriod] = useState<number>(1);  // Количество дней аренды
+  const [rentalPeriod,] = useState<number>(1);  // Количество дней аренды
+  
   const params = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const QuantityInputUpgrade = WithNumberInputWrapper(QuantityInput);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "../components/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import customFetch from "../axios/custom";
 import { checkUserProfileFormData } from "../utils/checkUserProfileFormData";
