@@ -96,7 +96,7 @@ const SingleProduct = () => {
       {/* Similar products */}
       <div>
         <h2 className="text-black/90 text-5xl mt-24 mb-12 text-center max-lg:text-4xl">
-          Similar Products
+          Похожие продукты
         </h2>
         <div className="flex flex-wrap justify-between items-center gap-y-8 mt-12 max-xl:justify-start max-xl:gap-5 ">
           {products.slice(0, 3).map((product: Product) => (

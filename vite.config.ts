@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/Kursach-front/',  // <- Укажи здесь точное имя репозитория
   plugins: [react()],
   build: {
-    outDir: 'build', // Указываем папку build для вывода файлов
+    outDir: 'build',
   },
 })
