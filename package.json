@@ -17,7 +17,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@reduxjs/toolkit": "^2.2.7",
