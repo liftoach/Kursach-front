@@ -58,15 +58,30 @@ const SingleProduct = () => {
     }
   };
 
+  const images = import.meta.glob('../assets/*.{png,jpg,jpeg,svg}', {
+    eager: true,
+    import: 'default',
+  });
+  
+  const imageUrl = React.useMemo(() => {
+    if (!singleProduct?.image) return null;
+    return Object.entries(images).find(([path]) =>
+      path.endsWith(`/assets/${singleProduct.image}`)
+    )?.[1] as string | undefined;
+  }, [singleProduct]);
+  
+
   return (
     <div className="max-w-screen-2xl mx-auto px-5 max-[400px]:px-3">
       <div className="grid grid-cols-3 gap-x-8 max-lg:grid-cols-1">
-        <div className="lg:col-span-2">
-          <img
-            src={`/src/assets/${singleProduct?.image}`}
-            alt={singleProduct?.title}
-          />
-        </div>
+            <div className="lg:col-span-2">
+        {imageUrl ? (
+          <img src={imageUrl} alt={singleProduct?.title} />
+        ) : (
+          <p>Изображение не найдено</p>
+        )}
+      </div>
+
         <div className="w-full flex flex-col gap-5 mt-9">
           <div className="flex flex-col gap-2">
             <h1 className="text-4xl">{singleProduct?.title}</h1>
