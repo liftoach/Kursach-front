@@ -17,7 +17,7 @@ const ShowingSearchPagination = ({
       <div className="flex flex-col gap-6 justify-center items-center w-1/2 mx-auto max-sm:w-3/4 max-sm:gap-5">
         <p className="text-xl max-sm:text-lg">Отображение { showingProducts } of { totalProducts }</p>
         <Button
-          text="View More"
+          text="Посмотреть больше"
           mode="white"
           onClick={() => {
             setCurrentPage(page + 1);

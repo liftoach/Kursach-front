@@ -36,7 +36,7 @@ const Button = ({ mode, text, ...props }: ButtonProps) => {
       )}
 
       {mode !== "white" && mode !== "brown" && mode !== "transparent" && (
-        <p>No valid mode selected</p>
+        <p>Выбраны неправильные варианты</p>
       )}
     </>
   );

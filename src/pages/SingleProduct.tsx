@@ -1,6 +1,5 @@
 import {
   Button,
-
   ProductItem,
   QuantityInput,
 } from "../components";
@@ -12,13 +11,12 @@ import WithNumberInputWrapper from "../utils/withNumberInputWrapper";
 import { formatCategoryName } from "../utils/formatCategoryName";
 import toast from "react-hot-toast";
 
-
 const SingleProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [singleProduct, setSingleProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState<number>(1);  // Количество для аренды
   const [rentalPeriod,] = useState<number>(1);  // Количество дней аренды
-  
+
   const params = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const QuantityInputUpgrade = WithNumberInputWrapper(QuantityInput);
@@ -76,7 +74,7 @@ const SingleProduct = () => {
               <p className="text-base text-secondaryBrown">
                 {formatCategoryName(singleProduct?.category || "")}
               </p>
-              <p className="text-base font-bold">${ singleProduct?.pricePerDay }/day</p>
+              <p className="text-base font-bold">${ singleProduct?.pricePerDay }/в день</p>
             </div>
           </div>
           <div className="flex flex-col gap-2">
@@ -86,7 +84,9 @@ const SingleProduct = () => {
                 setQuantity(() => parseInt(e.target.value))
               }
             />
-
+            <p className="text-sm text-gray-500">
+              Укажите количество <b>дней аренды</b>
+            </p>
           </div>
           <div className="flex flex-col gap-3">
             <Button mode="brown" text="Добавить в корзину" onClick={handleAddToCart} />
