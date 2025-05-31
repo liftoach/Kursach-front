@@ -5,11 +5,10 @@ import {
   ProductGridWrapper,
   ShowingSearchPagination,
 } from "../components";
-import { Form, useSearchParams, useNavigate } from "react-router-dom";
+import { Form, useSearchParams } from "react-router-dom";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
 
   // Состояние текущей страницы, инициализируем из URL-параметра
   const [currentPage, setCurrentPage] = useState<number>(
