@@ -1,0 +1,51 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Fake Build Step
+        run: echo "✅ Build step passed"
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Fake Test Step
+        run: echo "✅ Tests passed"
+
+  rebuild:
+    name: Rebuild
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Fake Rebuild Step
+        run: echo "✅ Rebuild passed"
+
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: rebuild
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Fake Deploy Step
+        run: echo "🚀 Deployed to production (not really)"

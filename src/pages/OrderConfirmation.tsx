@@ -13,12 +13,6 @@ const OrderConfirmation = () => {
       >
         Продолжить просмотр техники
       </Link>
-      <Link
-        to="/order-history"
-        className="text-white bg-secondaryBrown text-center text-xl font-normal tracking-[0.6px] leading-[72px] w-[400px] mx-auto mt-5 h-12 flex items-center justify-center max-md:text-base"
-      >
-       Посмотреть историю заказов и статус доставки
-      </Link>
     </div>
   );
 };

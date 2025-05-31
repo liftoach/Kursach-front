@@ -457,6 +457,41 @@
       "orderStatus": "Processing",
       "orderDate": "2024-08-31T09:54:07.549Z",
       "id": "8"
+    },
+    {
+      "id": "fa3c",
+      "data": {
+        "emailAddress": "nestorpetrischev@gmail.com",
+        "firstName": "Нестор",
+        "lastName": "Петрищев",
+        "address": "Российская Федерация Московская обл.  Одинцово г.о.  г. Одинцово 143003  ул. Маршала Жукова  18  1 47",
+        "apartment": "312313",
+        "city": "Одинцово",
+        "country": "Россия",
+        "postalCode": "13",
+        "phone": "+79775466298",
+        "paymentType": "on",
+        "cardNumber": "32131321",
+        "nameOnCard": "31321",
+        "expirationDate": "313123",
+        "cvc": "1313"
+      },
+      "products": [
+        {
+          "id": "11",
+          "image": "n1.jpg",
+          "title": "macbook",
+          "category": "Компьютеры",
+          "pricePerDay": 150,
+          "quantity": 1,
+          "rentalPeriod": 1,
+          "popularity": 5,
+          "stock": 3
+        }
+      ],
+      "subtotal": 150,
+      "orderStatus": "Processing",
+      "orderDate": "31.05.2025"
     }
   ],
   "users": [

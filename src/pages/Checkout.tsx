@@ -26,6 +26,11 @@ postalCode: "11080"
 region: "Serbia"
 */
 
+const images = import.meta.glob('../assets/*.{jpg,jpeg,png,svg}', {
+  eager: true,
+  import: 'default',
+});
+
 const paymentMethods = [
   { id: "credit-card", title: "Credit card" },
   { id: "paypal", title: "PayPal" },
@@ -400,52 +405,58 @@ const Checkout = () => {
               <h3 className="sr-only">Техника в вашем заказе</h3>
               <ul role="list" className="divide-y divide-gray-200">
                 {productsInCart.map((product) => (
-                  <li key={product?.id} className="flex px-4 py-6 sm:px-6">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={`/src/assets/${product?.image}`}
-                        alt={product?.title}
-                        className="w-20 rounded-md"
-                      />
-                    </div>
+                <li key={product?.id} className="flex px-4 py-6 sm:px-6">
+  <div className="flex-shrink-0">
+    {(() => {
+      const imageUrl = Object.entries(images).find(([path]) =>
+        path.endsWith(`/assets/${product?.image}`)
+      )?.[1];
 
-                    <div className="ml-6 flex flex-1 flex-col">
-                      <div className="flex">
-                        <div className="min-w-0 flex-1">
-                          <h4 className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                            {product?.title}
-                          </h4>
-                        </div>
+      return (
+        <img
+          src={imageUrl}
+          alt={product?.title}
+          className="w-20 rounded-md"
+        />
+      );
+    })()}
+  </div>
 
-                        <div className="ml-4 flow-root flex-shrink-0">
-                          <button
-                            type="button"
-                            className="-m-2.5 flex items-center justify-center bg-white p-2.5 text-gray-400 hover:text-gray-500"
-                            onClick={() =>
-                              dispatch(
-                                removeProductFromTheCart({ id: product?.id })
-                              )
-                            }
-                          >
-                            <span className="sr-only">Удалить</span>
-                            <TrashIcon className="h-5 w-5" aria-hidden="true" />
-                          </button>
-                        </div>
-                      </div>
+  <div className="ml-6 flex flex-1 flex-col">
+    <div className="flex">
+      <div className="min-w-0 flex-1">
+        <h4 className="text-sm font-medium text-gray-700 hover:text-gray-800">
+          {product?.title}
+        </h4>
+      </div>
 
-                      <div className="flex flex-1 items-end justify-between pt-2">
-                        <p className="mt-1 text-sm font-medium text-gray-900">
-                          ${product?.pricePerDay}
-                        </p>
+      <div className="ml-4 flow-root flex-shrink-0">
+        <button
+          type="button"
+          className="-m-2.5 flex items-center justify-center bg-white p-2.5 text-gray-400 hover:text-gray-500"
+          onClick={() =>
+            dispatch(removeProductFromTheCart({ id: product?.id }))
+          }
+        >
+          <span className="sr-only">Удалить</span>
+          <TrashIcon className="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
 
-                        <div className="ml-4">
-                          <p className="text-base">
-                            Quantity: {product?.quantity}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+    <div className="flex flex-1 items-end justify-between pt-2">
+      <p className="mt-1 text-sm font-medium text-gray-900">
+        ${product?.pricePerDay}
+      </p>
+
+      <div className="ml-4">
+        <p className="text-base">
+          количество дней аренды: {product?.quantity}
+        </p>
+      </div>
+    </div>
+  </div>
+</li>
                 ))}
               </ul>
               <dl className="space-y-6 border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -465,7 +476,7 @@ const Checkout = () => {
               </dl>
 
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                <Button text="Confirm Order" mode="brown" />
+                <Button text="Подтвердить заказ" mode="brown" />
               </div>
             </div>
           </div>
